@@ -8,7 +8,7 @@ Puppet manifest to install and configure mcollective
 
 * **The client is not available yet** 
 * Works in Debian|Ubuntu|RedHat|CentOS
-* Install and configure server[mcollective](http://puppetlabs.com/mcollective)
+* Install and configure server [mcollective](http://puppetlabs.com/mcollective)
 
 ##Requires:
 

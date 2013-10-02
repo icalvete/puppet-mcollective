@@ -6,6 +6,6 @@ class mcollective::config {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template("${module_name}/${mcollective::params::mcollective_config_file}.erb"),
+    content => template("${module_name}/${mcollective::params::mcollective_config_file}_${mcollective::params::so}.erb"),
   }
 }

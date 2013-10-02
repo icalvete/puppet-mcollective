@@ -11,10 +11,10 @@ securityprovider = psk
 plugin.psk = unset
 
 connector = stomp
-plugin.stomp.host = <%= scope.lookupvar('mcollective::params::stomp_host') %>
-plugin.stomp.port = <%= scope.lookupvar('mcollective::params::stomp_port') %>
-plugin.stomp.user = <%= scope.lookupvar('mcollective::params::stomp_user') %>
-plugin.stomp.password = <%= scope.lookupvar('mcollective::params::stomp_pass') %>
+plugin.stomp.host = <%= scope.lookupvar('mcollective::stomp_host') %>
+plugin.stomp.port = <%= scope.lookupvar('mcollective::stomp_port') %>
+plugin.stomp.user = <%= scope.lookupvar('mcollective::stomp_user') %>
+plugin.stomp.password = <%= scope.lookupvar('mcollective::stomp_pass') %>
 
 # Facts
 factsource = yaml

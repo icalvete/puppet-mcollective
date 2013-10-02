@@ -2,7 +2,6 @@ class mcollective::params {
 
   $mcollective_service            = 'mcollective'
   $mcollective_package            = 'mcollective'
-  $mcollective_package_client     = 'mcollective-client'
   $mcollective_config_dir         = '/etc/mcollective'
   $mcollective_config_file        = 'server.cfg'
   $mcollective_client_config_file = 'client.cfg'
@@ -15,9 +14,20 @@ class mcollective::params {
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
       $so = 'debian'
+      $mcollective_package_client     = [
+        'mcollective-client',
+        'mcollective-plugins-puppetd',
+        'mcollective-puppet-agent',
+        'mcollective-service-client'
+      ]
     }
     /^(Redhat|CentOS)$/: {
       $so = 'redhat'
+      $mcollective_package_client     = [
+        'mcollective-client',
+        'mcollective-puppet-agent',
+        'mcollective-service-client'
+      ]
     }
     default: {
       fail ("${::operatingsystem} not supported.")

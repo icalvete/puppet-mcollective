@@ -16,6 +16,6 @@ plugin.stomp.user = <%= scope.lookupvar('mcollective::client::stomp_user') %>
 plugin.stomp.password = <%= scope.lookupvar('mcollective::client::stomp_pass') %>
 
 # Facts
-factsource = yaml
-plugin.yaml = /etc/mcollective/facts.yaml
+factsource = facter
+#plugin.yaml = /etc/mcollective/facts.yaml
 

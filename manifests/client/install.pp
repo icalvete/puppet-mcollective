@@ -1,6 +1,7 @@
 class mcollective::client::install {
 
   package{$mcollective::params::mcollective_package_client:
-    ensure => present
+    ensure  => present,
+    require => Package['stomp']
   }
 }

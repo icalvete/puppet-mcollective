@@ -11,7 +11,7 @@ class mcollective (
     before => Class['mcollective::install']
   }
   class {'mcollective::install':
-    require => Anchor['mcollective::end']
+    require => Anchor['mcollective::begin']
   }
   class {'mcollective::config':
     require => Class['mcollective::install']

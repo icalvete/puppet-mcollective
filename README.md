@@ -18,11 +18,15 @@ Puppet manifest to install and configure mcollective
 
 Server:
 
+```puppet
     include mcollective
+```
 
 client
 
+```puppet
     include mcollective::client
+```
 
 ##Authors:
 

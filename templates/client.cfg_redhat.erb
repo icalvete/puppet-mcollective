@@ -1,4 +1,4 @@
-topicprefix = /topic/
+#topicprefix = /topic/
 main_collective = mcollective
 collectives = mcollective
 libdir = /usr/libexec/mcollective
@@ -9,11 +9,22 @@ loglevel = warn
 securityprovider = psk
 plugin.psk = unset
 
+<% case @connector
+when 'stomp' -%>
 connector = stomp
-plugin.stomp.host = <%= scope.lookupvar('mcollective::client::stomp_host') %>
-plugin.stomp.port = <%= scope.lookupvar('mcollective::client::stomp_port') %>
-plugin.stomp.user = <%= scope.lookupvar('mcollective::client::stomp_user') %>
-plugin.stomp.password = <%= scope.lookupvar('mcollective::client::stomp_pass') %>
+plugin.stomp.host = <%= scope.lookupvar('mcollective::connector_host') %>
+plugin.stomp.port = <%= scope.lookupvar('mcollective::connector_port') %>
+plugin.stomp.user = <%= scope.lookupvar('mcollective::connector_user') %>
+plugin.stomp.password = <%= scope.lookupvar('mcollective::connector_pass') %>
+<% when 'rabbitmq' -%>
+connector = rabbitmq
+plugin.rabbitmq.vhost = /
+plugin.rabbitmq.pool.size = 1
+plugin.rabbitmq.pool.1.host = <%= scope.lookupvar('mcollective::connector_host') %>
+plugin.rabbitmq.pool.1.port = <%= scope.lookupvar('mcollective::connector_port') %>
+plugin.rabbitmq.pool.1.user = <%= scope.lookupvar('mcollective::connector_user') %>
+plugin.rabbitmq.pool.1.password = <%= scope.lookupvar('mcollective::connector_pass') %>
+<% end -%>
 
 # Facts
 factsource = facter

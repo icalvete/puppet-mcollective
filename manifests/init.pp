@@ -1,9 +1,10 @@
 class mcollective (
 
-  $stomp_host = $mcollective::params::stomp_host,
-  $stomp_port = $mcollective::params::stomp_port,
-  $stomp_user = $mcollective::params::stomp_user,
-  $stomp_pass = $mcollective::params::stomp_pass
+  $connector_host = $mcollective::params::connector_host,
+  $connector_port = $mcollective::params::connector_port,
+  $connector_user = $mcollective::params::connector_user,
+  $connector_pass = $mcollective::params::connector_pass,
+  $connector      = $mcollective::params::connector
 
 ) inherits mcollective::params {
 

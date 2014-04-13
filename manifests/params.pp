@@ -6,10 +6,11 @@ class mcollective::params {
   $mcollective_config_file        = 'server.cfg'
   $mcollective_client_config_file = 'client.cfg'
 
-  $stomp_host                     = hiera('mcollective_stomp_server')
-  $stomp_port                     = hiera('mcollective_stomp_port')
-  $stomp_user                     = hiera('mcollective_stomp_user')
-  $stomp_pass                     = hiera('mcollective_stomp_pass')
+  $connector_host                 = hiera('mcollective_connector_server')
+  $connector_port                 = hiera('mcollective_connector_port')
+  $connector_user                 = hiera('mcollective_connector_user')
+  $connector_pass                 = hiera('mcollective_connector_pass')
+  $connector                      = 'rabbitmq'
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {

@@ -15,12 +15,25 @@ class mcollective::params {
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
       $so = 'debian'
-      $mcollective_package_client     = [
-        'mcollective-client',
-        'mcollective-plugins-puppetd',
-        'mcollective-puppet-agent',
-        'mcollective-service-client'
-      ]
+
+      case $::operatingsystemrelease {
+
+        '14.04': {
+          $mcollective_package_client     = [
+            'mcollective-client',
+            'mcollective-plugins-puppetd',
+            'mcollective-puppet-agent'
+          ]
+        }
+        default: {
+          $mcollective_package_client     = [
+            'mcollective-client',
+            'mcollective-plugins-puppetd',
+            'mcollective-puppet-agent',
+            'mcollective-service-client'
+          ]
+        }
+      }
     }
     /^(Redhat|CentOS)$/: {
       $so = 'redhat'

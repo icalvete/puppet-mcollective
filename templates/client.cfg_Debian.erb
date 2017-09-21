@@ -1,0 +1,20 @@
+main_collective = mcollective
+collectives = mcollective
+libdir = /usr/share/mcollective/plugins
+logger_type = console
+loglevel = warn
+
+# Plugins
+securityprovider = psk
+plugin.psk = unset
+
+connector = activemq
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = <%= scope.lookupvar('mcollective::host') %>
+plugin.activemq.pool.1.port = <%= scope.lookupvar('mcollective::port') %>
+plugin.activemq.pool.1.user = <%= scope.lookupvar('mcollective::user') %>
+plugin.activemq.pool.1.password = <%= scope.lookupvar('mcollective::pass') %>
+
+# Facts
+factsource = yaml
+plugin.yaml = /etc/mcollective/facts.yaml

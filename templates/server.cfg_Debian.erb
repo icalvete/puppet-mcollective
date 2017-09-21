@@ -1,0 +1,21 @@
+main_collective = mcollective
+collectives = mcollective
+libdir = /usr/share/mcollective/plugins
+logfile = /var/log/mcollective.log
+loglevel = debug
+daemonize = 1
+
+# Plugins
+securityprovider = psk
+plugin.psk = unset
+
+connector = activemq
+plugin.activemq.pool.size = 1
+plugin.activemq.pool.1.host = <%= scope.lookupvar('mcollective::host') %>
+plugin.activemq.pool.1.port = <%= scope.lookupvar('mcollective::port') %>
+plugin.activemq.pool.1.user = <%= scope.lookupvar('mcollective::user') %>
+plugin.activemq.pool.1.password = <%= scope.lookupvar('mcollective::pass') %>
+
+# Facts
+factsource = facter
+plugin.puppetd.puppetd = /usr/bin/puppet agent

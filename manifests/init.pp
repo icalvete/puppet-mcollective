@@ -1,10 +1,10 @@
 class mcollective (
 
-  $connector_host = $mcollective::params::connector_host,
-  $connector_port = $mcollective::params::connector_port,
-  $connector_user = $mcollective::params::connector_user,
-  $connector_pass = $mcollective::params::connector_pass,
-  $connector      = $mcollective::params::connector
+  $host    = $mcollective::params::host,
+  $port    = $mcollective::params::port,
+  $user    = $mcollective::params::user,
+  $pass    = $mcollective::params::pass,
+  $puppet  = false
 
 ) inherits mcollective::params {
 

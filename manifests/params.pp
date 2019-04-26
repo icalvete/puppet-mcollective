@@ -1,7 +1,7 @@
 class mcollective::params {
 
   $service            = 'mcollective'
-  $package            = 'mcollective'
+  $package            = ['mcollective', 'mcollective-client']
   $config_dir         = '/etc/mcollective'
   $config_file        = 'server.cfg'
   $client_config_file = 'client.cfg'
